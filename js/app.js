@@ -7,6 +7,14 @@ App.Router.map(function() {
   this.route('first-route', { path: 'first-route-in-url' })
 });
 
+App.FirstRouteRoute = Ember.Route.extend({
+  actions: {
+    headerclicked: function () {
+      alert('Header Clicked');
+    }
+  }
+});
+
 App.IndexRoute = Ember.Route.extend({
   model: function() {
     return ['red', 'yellow', 'blue'];
