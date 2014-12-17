@@ -8,11 +8,17 @@ App.Router.map(function() {
 });
 
 App.FirstRouteRoute = Ember.Route.extend({
+  
+});
+
+App.FirstRouteController = Ember.Controller.extend({
   actions: {
     headerclicked: function () {
-      alert('Header Clicked');
+      alert('Header Clicked in controller');
     }
-  }
+  },
+  firstName: 'Francisco',
+  lastName: 'De La Cruz'
 });
 
 App.IndexRoute = Ember.Route.extend({
