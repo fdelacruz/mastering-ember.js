@@ -4,12 +4,24 @@ App = Ember.Application.create({
 });
 
 App.Router.map(function() {
-  this.route('firstPage', { path: 'firstPage' })
-  this.route('secondPage', { path: 'secondPage' })
+  // this.route('index', { path: '/' })
+  this.route('about', { path: '/about' })
 });
 
 App.IndexRoute = Ember.Route.extend({
-  model: function() {
-    return ['red', 'yellow', 'blue'];
-  }
+  // redirect: function() {
+  //   this.transitionTo('about')
+  // }
+});
+
+App.IndexController = Ember.ObjectController.extend({
+   actions: {
+    linkClicked: function() {
+      this.transitionToRoute('about');
+    }
+   }
+});
+
+App.AboutRoute = Ember.Route.extend({
+
 });
