@@ -4,20 +4,27 @@ App = Ember.Application.create({
 });
 
 App.Router.map(function() {
-  this.route('databinding', { path: '/databinding' })
+  this.route('firstModel', { path: 'firstModel' })
+  this.route('secondModel', { path: 'secondModel' })
+});
+
+App.FirstModelRoute = Ember.Route.extend({
+  model: function () {
+    return ['item1', 'item2', 'item3'];
+  }
+});
+
+App.SecondModelRoute = Ember.Route.extend({
+  model: function () {
+    return {
+      firstName: 'Francisco',
+      lastName: 'De La Cruz'
+    }
+  }
 });
 
 App.IndexRoute = Ember.Route.extend({
   model: function() {
     return ['red', 'yellow', 'blue'];
-  }
-});
-
-App.DatabindingController = Ember.Controller.extend({
-  firstName: 'Christiano',
-  lastName: 'Ronaldo',
-  person: {
-    age: 12,
-    height: '1.2m'
   }
 });
