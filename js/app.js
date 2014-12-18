@@ -14,9 +14,10 @@ App.IndexRoute = Ember.Route.extend({
 });
 
 App.IndexController = Ember.ArrayController.extend({
-  myVeryLongFirstName: 'Someverylongname'
-});
-
-Ember.Handlebars.helper('makeShorter', function(value, option) {
-  return value.substring(0, 4);
+  firstName: 'Christina',
+  actions: {
+    addNewItem: function() {
+      this.get('model').pushObject('new item');
+    }
+  }
 });
