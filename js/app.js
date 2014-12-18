@@ -4,7 +4,7 @@ App = Ember.Application.create({
 });
 
 App.Router.map(function() {
-  this.route('myroute')
+  // put your routes here
 });
 
 App.IndexRoute = Ember.Route.extend({
@@ -13,3 +13,10 @@ App.IndexRoute = Ember.Route.extend({
   }
 });
 
+App.IndexController = Ember.ArrayController.extend({
+  myVeryLongFirstName: 'Someverylongname'
+});
+
+Ember.Handlebars.helper('makeShorter', function(value, option) {
+  return value.substring(0, 4);
+});
