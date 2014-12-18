@@ -4,24 +4,11 @@ App = Ember.Application.create({
 });
 
 App.Router.map(function() {
-  // this.route('index', { path: '/' })
-  this.route('about', { path: '/about' })
+  this.route('about');
 });
 
 App.IndexRoute = Ember.Route.extend({
-  // redirect: function() {
-  //   this.transitionTo('about')
-  // }
-});
-
-App.IndexController = Ember.ObjectController.extend({
-   actions: {
-    linkClicked: function() {
-      this.transitionToRoute('about');
-    }
-   }
-});
-
-App.AboutRoute = Ember.Route.extend({
-
+  model: function() {
+    return ['red', 'yellow', 'blue'];
+  }
 });
