@@ -4,23 +4,8 @@ App = Ember.Application.create({
 });
 
 App.Router.map(function() {
-  this.route('firstModel', { path: 'firstModel' })
-  this.route('secondModel', { path: 'secondModel' })
-});
-
-App.FirstModelRoute = Ember.Route.extend({
-  model: function () {
-    return ['item1', 'item2', 'item3'];
-  }
-});
-
-App.SecondModelRoute = Ember.Route.extend({
-  model: function () {
-    return {
-      firstName: 'Francisco',
-      lastName: 'De La Cruz'
-    }
-  }
+  this.route('firstPage', { path: 'firstPage' })
+  this.route('secondPage', { path: 'secondPage' })
 });
 
 App.IndexRoute = Ember.Route.extend({

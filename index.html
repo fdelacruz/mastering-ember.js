@@ -9,19 +9,18 @@
   <body>
     <script type="text/x-handlebars">
       <h2>Welcome to Ember.js</h2>
-
+      <p>{{#link-to 'index'}}Home{{/link-to}}</p> 
+      <p>{{#link-to 'firstPage'}}First Page{{/link-to}}</p> 
+      <p>{{#link-to 'secondPage'}}Second Page{{/link-to}}</p> 
       {{outlet}}
     </script>
 
-    <script type="text/x-handlebars" data-template-name="firstModel">
-      {{#each item in model}}
-        <p>{{item}}</p>
-      {{/each}}
+    <script type="text/x-handlebars" data-template-name="firstPage">
+      <h3>This is our first page template</h3>
     </script>
 
-    <script type="text/x-handlebars" data-template-name="secondModel">
-      <p>{{firstName}}</p>
-      <p>{{lastName}}</p>
+    <script type="text/x-handlebars" data-template-name="secondPage">
+      <h3>This is our second page template</h3>
     </script>
 
     <script type="text/x-handlebars" data-template-name="index">
