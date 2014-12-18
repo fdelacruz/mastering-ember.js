@@ -9,15 +9,23 @@
   <body>
     <script type="text/x-handlebars">
       <h2>Welcome to Ember.js</h2>
+      <h3>Let's learn helpers</h3>
 
       {{outlet}}
     </script>
 
     <script type="text/x-handlebars" data-template-name="index">
-      {{firstName}}
-      {{lastName}}
-      <p><a href="" {{action 'getActor'}}>Get Actor</a></p>
-      <p><a href="" {{action 'setActor'}}>Set new Actor</a></p>
+      {{#link-to 'myroute'}}My route{{/link-to}}
+
+      <ul>
+      {{#each item in model}}
+        <li>{{item}}</li>
+      {{/each}}
+      </ul>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="myroute">
+      {{#link-to 'index'}}Back{{/link-to}}
     </script>
 
     <script src="js/libs/jquery-1.10.2.js"></script>
