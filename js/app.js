@@ -14,9 +14,10 @@ App.IndexRoute = Ember.Route.extend({
 });
 
 App.IndexController = Ember.ArrayController.extend({
-  firstName: 'Angelina',
-  lastName: 'Jolie',
-  fullname: function () {
-    return this.get('firstName') + ' ' + this.get('lastName')
-  }.property('firstName', 'lastName')
+  firstName: 'Jack',
+  lastName: 'Bauer',
+  fullname: '',
+    adjustFullName: function(){
+      this.set('fullname', this.get('firstName') + ' ' + this.get('lastName'));
+    }.observes('firstName', 'lastName')
 });
