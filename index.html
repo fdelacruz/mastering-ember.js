@@ -14,13 +14,9 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="index">
-      {{firstName}}
-      {{input value=firstName}}
-
-      <button {{action 'addNewItem'}}>Update Model</button>
       <ul>
       {{#each item in model}}
-        <li>{{item}}</li>
+        <li>{{item.firstName}} {{item.lastName}} is of age {{item.age}}</li>
       {{/each}}
       </ul>
     </script>
@@ -28,6 +24,7 @@
     <script src="js/libs/jquery-1.10.2.js"></script>
     <script src="js/libs/handlebars-v2.0.0.js"></script>
     <script src="js/libs/ember-1.9.0.js"></script>
+    <script src="js/libs/ember-data.js"></script>
     <script src="js/app.js"></script>
     <!-- to activate the test runner, add the "?test" query string parameter -->
     <script src="tests/runner.js"></script>
