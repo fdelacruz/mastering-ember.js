@@ -14,11 +14,9 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="index">
-      <ul>
-      {{#each item in model}}
-        <li>{{item.firstName}}</li>
-      {{/each}}
-      </ul>
+      <p>{{firstName}} {{input value=firstName}}</p>
+      <p>{{lastName}} {{input value=lastName}}</p>
+      <p>{{fullname}}</p>
     </script>
 
     <script src="js/libs/jquery-1.10.2.js"></script>
