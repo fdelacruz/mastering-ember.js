@@ -15,8 +15,8 @@
 
     <script type="text/x-handlebars" data-template-name="blog">
       <h2>Welcome to our blog</h2>
-      {{#each}}
-      <p>{{#link-to 'article' this}}{{title}}{{/link-to}}</p>
+      {{#each article in model}}
+      <p>{{#link-to 'article' article}}{{article.title}}{{/link-to}}</p>
       {{/each}}
     </script>
 
@@ -25,8 +25,8 @@
       <p>{{body}}</p>
       <div>
         <h4>Comments:</h4>
-        {{#each comments}}
-        <p>{{text}}</p>
+        {{#each comment in comments}}
+        <p>{{comment.text}}</p>
         {{/each}}
       </div>
     </script>
