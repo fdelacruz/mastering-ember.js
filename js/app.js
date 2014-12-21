@@ -8,6 +8,12 @@ App.Router.map(function() {
   this.route('article', { path: 'articles/:article_id'} );
 });
 
+App.BlogRoute = Ember.Route.extend({
+  model: function(){
+    return this.store.find('article');
+  }
+});
+
 App.Article = DS.Model.extend({
   title: DS.attr(),
   body: DS.attr(),
@@ -18,6 +24,9 @@ App.Comment = DS.Model.extend({
   text: DS.attr(),
   article: DS.belongsTo('article')
 });
+
+App.ArticleAdapter = DS.FixtureAdapter.extend();
+App.CommentAdapter = DS.FixtureAdapter.extend();
 
 App.Article.FIXTURES = [
   {
@@ -51,12 +60,3 @@ App.Comment.FIXTURES = [
     article: 2
   }
 ];
-
-App.ArticleAdapter = DS.FixtureAdapter.extend();
-App.CommentAdapter = DS.FixtureAdapter.extend();
-
-App.BlogRoute = Ember.Route.extend({
-  model: function(){
-    return this.store.find('article');
-  }
-});
