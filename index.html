@@ -9,26 +9,18 @@
   <body>
     <script type="text/x-handlebars">
       <h2>Welcome to Ember.js</h2>
-      <p>{{#link-to 'blog'}}Blog{{/link-to}}</p>
+
       {{outlet}}
     </script>
 
-    <script type="text/x-handlebars" data-template-name="blog">
-      <h2>Welcome to our blog</h2>
-      {{#each article in model}}
-      <p>{{#link-to 'article' article}}{{article.title}}{{/link-to}}</p>
+    <script type="text/x-handlebars" data-template-name="people">
+      {{#each person in model}}
+      <p>{{#link-to 'person' person}}{{person.firstName}} {{person.lastName}}{{/link-to}}</p>
       {{/each}}
     </script>
 
-    <script type="text/x-handlebars" data-template-name="article">
-      <h3>{{title}}</h3>
-      <p>{{body}}</p>
-      <div>
-        <h4>Comments:</h4>
-        {{#each comment in comments}}
-        <p>{{comment.text}}</p>
-        {{/each}}
-      </div>
+    <script type="text/x-handlebars" data-template-name="person">
+    <p>{{firstName}} {{lastName}}</p>
     </script>
 
     <script src="js/libs/jquery-1.10.2.js"></script>

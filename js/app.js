@@ -3,60 +3,52 @@ App = Ember.Application.create({
   LOG_TRANSITIONS: true
 });
 
+Ember.Inflector.inflector.irregular('person', 'people');
+
 App.Router.map(function() {
-  this.route('blog');
-  this.route('article', { path: 'articles/:article_id'} );
+  this.route('people', { path: '/people' });
+  this.route('person', { path: '/people/:person_id' });
 });
 
-App.BlogRoute = Ember.Route.extend({
+App.PeopleRoute = Ember.Route.extend({
   model: function(){
-    return this.store.find('article');
+    return this.store.find('person');
   }
 });
 
-App.Article = DS.Model.extend({
-  title: DS.attr(),
-  body: DS.attr(),
-  comments: DS.hasMany('comment', { async: true })
+// Route not needed since I used :person_id in the route definition above
+// App.PersonRoute = Ember.Route.extend({
+//   model: function(params){
+//     return this.store.find('person', params.person_id)
+//   }
+// });
+
+App.Person = DS.Model.extend({
+  firstName: DS.attr(),
+  lastName: DS.attr(),
 });
 
-App.Comment = DS.Model.extend({
-  text: DS.attr(),
-  article: DS.belongsTo('article')
-});
+App.PersonAdapter = DS.FixtureAdapter.extend();
 
-App.ArticleAdapter = DS.FixtureAdapter.extend();
-App.CommentAdapter = DS.FixtureAdapter.extend();
-
-App.Article.FIXTURES = [
+App.Person.FIXTURES = [
   {
     id: 1,
-    title: 'First stab at ember blogging',
-    body: 'Building ambitious applications in ember feels like a breeze',
-    comments: [2]
+    firstName: 'Ryan',
+    lastName: 'Giggs'
   },
   {
     id: 2,
-    title: 'Blogging deep into ember',
-    body: 'Ember is just great, word',
-    comments: [1, 3]
-  }
-];
-  
-App.Comment.FIXTURES = [
-  {
-    id: 1,
-    text: 'Wow, excited to learn ember together',
-    article: 2
-  },
-  {
-    id: 2,
-    text: 'Everyday with ember keeps gettting better',
-    article: 1
+    firstName: 'Tom',
+    lastName: 'Dale'
   },
   {
     id: 3,
-    text: 'Ember is awesome',
-    article: 2
+    firstName: 'Yehuda',
+    lastName: 'Katz'
+  },
+  {
+    id: 4,
+    firstName: 'Erik',
+    lastName: 'Bryn'
   }
 ];
