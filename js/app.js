@@ -4,16 +4,37 @@ App = Ember.Application.create({
 });
 
 App.Router.map(function() {
-  // put your routes here
+  this.route("about", { path: "/about" });
 });
 
 App.IndexRoute = Ember.Route.extend({
   model: function(){
     return ['red', 'yellow', 'blue']
-  },
-  setupController: function(controller, model){
-    controller.set('model', model);
-    controller.set('owner', 'Tom Dale');
   }
 });
 
+App.IndexController = Ember.ArrayController.extend({
+  needs: ['about'],
+
+  actions: {
+    callAboutController: function(){
+      this.get('controllers.about').send('popup');
+    },
+    popup: function () {
+      alert('Popup from index controller');
+    }
+  }
+});
+
+App.AboutController = Ember.ObjectController.extend({
+  needs: ['index'],
+
+  actions: {
+    callIndexController: function(){
+      this.get('controllers.index').send('popup');
+    },
+    popup: function () {
+      alert('Popup from about controller');
+    }
+  }
+});
