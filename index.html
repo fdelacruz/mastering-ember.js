@@ -9,22 +9,26 @@
   <body>
     <script type="text/x-handlebars">
       <h2>Welcome to Ember.js</h2>
-      <p>
-        {{#link-to 'index'}}Index{{/link-to}}
-        {{#link-to 'about'}}About{{/link-to}}
-      </p>
 
       {{outlet}}
     </script>
 
-    <script type="text/x-handlebars" data-template-name="index">
-      <h3>Inside the index Template</h3>
-      <button {{action 'callAboutController'}}>Call About popup</button>
+    <script type="text/x-handlebars" data-template-name="articles">
+      <h3>Inside the articles Template</h3>
+
+      {{outlet}}
+    </script>
+    
+    <script type="text/x-handlebars" data-template-name="articles/index">
+      <h3>Inside the articles/index Template</h3>
     </script>
 
-    <script type="text/x-handlebars" data-template-name="about">
-      <h3>Inside the about Template</h3>
-      <button {{action 'callIndexController'}}>Call Index popup</button>
+    <script type="text/x-handlebars" data-template-name="articles/new">
+      <h3>Inside the articles/new Template</h3>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="articles/edit">
+      <h3>Inside the articles/edit Template</h3>
     </script>
 
     <script src="js/libs/jquery-1.10.2.js"></script>
