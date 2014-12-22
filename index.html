@@ -13,14 +13,11 @@
       {{outlet}}
     </script>
 
-    <script type="text/x-handlebars" data-template-name="people">
-      {{#each person in model}}
-      <p>{{#link-to 'person' person}}{{person.firstName}} {{person.lastName}}{{/link-to}}</p>
-      {{/each}}
-    </script>
-
-    <script type="text/x-handlebars" data-template-name="person">
-    <p>{{firstName}} {{lastName}}</p>
+    <script type="text/x-handlebars" data-template-name="index">
+      <form {{action 'handleSubmit' on="submit"}}>
+        {{input value=firstName}}
+        <button type="submit">Submit</button>
+      </form>
     </script>
 
     <script src="js/libs/jquery-1.10.2.js"></script>
